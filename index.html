@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imane Ait Said - Portfolio</title>
+  <style>
+    /* ----------- Style Global ----------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #1e1e2f, #2a2a40);
+      color: #fff;
+      line-height: 1.6;
+      transition: background 0.5s, color 0.5s;
+    }
+
+    body.light {
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    h1, h2, h3 {
+      font-weight: 600;
+    }
+
+    /* ----------- Navbar ----------- */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 15px 50px;
+      background: rgba(30, 30, 47, 0.9);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      transition: background 0.5s;
+    }
+
+    body.light header {
+      background: rgba(245, 245, 245, 0.9);
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      background: linear-gradient(90deg, #ff6ec4, #7873f5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav a {
+      margin-left: 20px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff6ec4;
+    }
+
+    /* ----------- Bouton Dark/Light ----------- */
+    .toggle-btn {
+      cursor: pointer;
+      padding: 8px 15px;
+      border-radius: 20px;
+      border: none;
+      background: linear-gradient(90deg, #ff6ec4, #7873f5);
+      color: #fff;
+      font-weight: 500;
+      transition: transform 0.3s;
+    }
+
+    .toggle-btn:hover {
+      transform: scale(1.1);
+    }
+
+    /* ----------- Section Hero ----------- */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s, transform 1s;
+    }
+
+    .hero.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 25px;
+      border-radius: 30px;
+      background: linear-gradient(90deg, #ff6ec4, #7873f5);
+      color: #fff;
+      font-weight: 500;
+      transition: transform 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    /* ----------- Section ----------- */
+    section {
+      padding: 100px 50px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s, transform 1s;
+    }
+
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ----------- About ----------- */
+    .about {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
+
+    .about img {
+      width: 250px;
+      border-radius: 50%;
+      border: 5px solid #ff6ec4;
+      transition: transform 0.5s;
+    }
+
+    .about img:hover {
+      transform: rotate(5deg) scale(1.05);
+    }
+
+    /* ----------- Projects ----------- */
+    .projects {
+      text-align: center;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: #2f2f47;
+      padding: 20px;
+      border-radius: 15px;
+      transition: transform 0.4s, box-shadow 0.4s;
+      perspective: 1000px;
+      text-align: left;
+    }
+
+    body.light .card {
+      background: #fff;
+      color: #333;
+    }
+
+    .card:hover {
+      transform: rotateY(10deg) translateY(-10px);
+      box-shadow: 0px 10px 25px rgba(0,0,0,0.3);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    /* ----------- Upcoming Projects ----------- */
+    #upcoming-projects {
+      background: rgba(255, 110, 196, 0.05);
+      border-radius: 15px;
+      margin-top: 50px;
+      padding: 100px 50px;
+    }
+
+    /* ----------- Contact ----------- */
+    .contact {
+      text-align: center;
+    }
+
+    footer {
+      background: #1e1e2f;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+      font-size: 0.9rem;
+      color: #aaa;
+      transition: background 0.5s;
+    }
+
+    body.light footer {
+      background: #ddd;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <h1>Imane Ait Said</h1>
+    <nav>
+      <a href="#about">À propos</a>
+      <a href="#projects">Projets</a>
+      <a href="#upcoming-projects">Futurs défis</a>
+      <a href="#contact">Contact</a>
+      <button class="toggle-btn">🌙 Mode</button>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h2>Salut, je suis <span style="color:#ff6ec4;">Développeuse Full-Stack</span></h2>
+    <p>Licence en Génie Informatique | Étudiante en Master Science des Données et Systèmes Intelligents</p>
+    <a href="#projects" class="btn">Voir mes projets</a>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="about">
+    <img src="images/profil.jpg" alt="Photo de profil">
+    <div class="about-text">
+      <h2>À propos de moi</h2>
+      <p>
+        Je suis <b>développeuse passionnée</b> avec des compétences en 
+        <b>HTML, CSS, JavaScript, Java, C++, Spring Boot</b> et plus encore.  
+        Après une Licence en Génie Informatique, je poursuis actuellement un <b>Master en Science des Données et Systèmes Intelligents</b>.  
+        Mon objectif est de créer des solutions intelligentes et innovantes qui allient technologie et impact réel.
+      </p>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="projects">
+    <h2>Mes Projets</h2>
+    <div class="project-grid">
+      <div class="card">
+        <img src="images/robotique.jpg" alt="Projet Robotique">
+        <h3>🤖 Projet Robotique</h3>
+        <p>Un robot qui fait l’arrosage automatique, développé avec Arduino et programmé en C++.</p>
+      </div>
+      <div class="card">
+        <img src="images/mexivibe.png" alt="Site Mexican Vibe">
+        <h3>🌎 Site Mexican Vibe</h3>
+        <p>Un site web touristique moderne présentant la culture et les monuments du Mexique.</p>
+      </div>
+      <div class="card">
+        <img src="images/comnpusconf.jpg" alt="CampusConf">
+        <h3>🎓 CampusConf</h3>
+        <p>Une application web pour la gestion des conférences académiques (soumissions, évaluations, etc.).</p>
+      </div>
+      <div class="card">
+        <img src="images/chumarr.png" alt="CHU Marrakech">
+        <h3>🏥 CHU Marrakech</h3>
+        <p>Application web pour la gestion du laboratoire hospitalier : analyses, résultats et validation médicale.</p>
+      </div>
+    </div>
+  </section>
+
+
+ <!-- Upcoming Projects -->
+<section id="upcoming-projects" class="projects">
+  <h2>Futurs défis</h2>
+  <div class="project-grid">
+    <div class="card">
+      <h3>🌐 Application Web3 / Blockchain</h3>
+      <p>Développement d’une application web décentralisée pour expérimenter avec les crypto-monnaies et la blockchain.</p>
+    </div>
+    <div class="card">
+      <h3>📊 Analyse avancée de données</h3>
+      <p>Exploitation de données massives pour générer des rapports et prévisions, avec des visualisations et insights stratégiques.</p>
+    </div>
+    <div class="card">
+      <h3>🤖 Projet Master en IA et Data Science</h3>
+      <p>Création d’un modèle d’apprentissage automatique pour analyser des données complexes et résoudre des problèmes réels dans ton domaine de master.</p>
+    </div>
+  </div>
+</section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>Vous souhaitez collaborer ou discuter d’un projet ?</p>
+    <p>📩 <a href="mailto:asimane028@gmail.com" class="btn">Envoyer un mail</a></p>
+    <p>🔗 <a href="https://ma.linkedin.com/in/imane-ait-said-812107365" target="_blank" class="btn">Mon LinkedIn</a></p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Imane Ait Said - Tous droits réservés
+  </footer>
+
+  <!-- Script -->
+  <script>
+    // Animation au scroll
+    const sections = document.querySelectorAll("section, .hero");
+    const revealOnScroll = () => {
+      sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+          sec.classList.add("show");
+        }
+      });
+    };
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
+
+    // Mode clair/sombre
+    const toggleBtn = document.querySelector(".toggle-btn");
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("light");
+      toggleBtn.textContent = document.body.classList.contains("light") ? "🌞 Mode" : "🌙 Mode";
+    });
+  </script>
+
+</body>
+</html>
