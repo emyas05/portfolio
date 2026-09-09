@@ -1,345 +1,558 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Imane Ait Said - Portfolio</title>
+  <title>Imane Ait Said | AI & Data Science Researcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  
   <style>
-    /* ----------- Style Global ----------- */
+    /* ----------- Theme & CSS Variables ----------- */
+    :root {
+      --bg-color: #0b0f17;
+      --card-bg: #131924;
+      --border-color: #232d3f;
+      --border-hover: #3b82f6;
+      --text-main: #94a3b8;
+      --text-heading: #f8fafc;
+      --text-muted: #64748b;
+      --accent-green: #10b981;
+      --accent-blue: #3b82f6;
+      --tag-bg: #1e293b;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'Fira Code', monospace;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      background: linear-gradient(135deg, #1e1e2f, #2a2a40);
-      color: #fff;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: var(--font-sans);
       line-height: 1.6;
-      transition: background 0.5s, color 0.5s;
-    }
-
-    body.light {
-      background: #f5f5f5;
-      color: #333;
+      font-size: 16px;
     }
 
     a {
-      color: inherit;
+      color: var(--accent-blue);
       text-decoration: none;
+      transition: color 0.2s;
     }
 
-    h1, h2, h3 {
-      font-weight: 600;
+    a:hover {
+      text-decoration: underline;
     }
 
-    /* ----------- Navbar ----------- */
+    /* ----------- Header & Navigation ----------- */
     header {
       position: fixed;
       top: 0;
       width: 100%;
-      padding: 15px 50px;
-      background: rgba(30, 30, 47, 0.9);
+      background: rgba(11, 15, 23, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+      padding: 1.2rem 10%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 1000;
-      transition: background 0.5s;
     }
 
-    body.light header {
-      background: rgba(245, 245, 245, 0.9);
+    .brand {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text-heading);
+      letter-spacing: -0.5px;
     }
 
-    header h1 {
-      font-size: 1.5rem;
-      background: linear-gradient(90deg, #ff6ec4, #7873f5);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .brand span {
+      color: var(--accent-blue);
+      font-family: var(--font-mono);
     }
 
     nav a {
-      margin-left: 20px;
+      color: var(--text-muted);
+      margin-left: 1.8rem;
+      font-size: 0.9rem;
       font-weight: 500;
-      transition: color 0.3s;
+      transition: color 0.2s;
     }
 
     nav a:hover {
-      color: #ff6ec4;
+      color: var(--text-heading);
+      text-decoration: none;
     }
 
-    /* ----------- Bouton Dark/Light ----------- */
-    .toggle-btn {
-      cursor: pointer;
-      padding: 8px 15px;
-      border-radius: 20px;
-      border: none;
-      background: linear-gradient(90deg, #ff6ec4, #7873f5);
-      color: #fff;
-      font-weight: 500;
-      transition: transform 0.3s;
+    /* ----------- Main Layout ----------- */
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
     }
 
-    .toggle-btn:hover {
-      transform: scale(1.1);
+    section {
+      padding: 6rem 0 3rem 0;
+      border-bottom: 1px solid var(--border-color);
     }
 
-    /* ----------- Section Hero ----------- */
-    .hero {
-      height: 100vh;
+    .section-title {
+      font-size: 1.4rem;
+      color: var(--text-heading);
+      margin-bottom: 2rem;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      text-align: center;
-      padding: 0 20px;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 1s, transform 1s;
+      gap: 0.6rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
     }
 
-    .hero.show {
-      opacity: 1;
-      transform: translateY(0);
+    .section-title::before {
+      content: '❯_';
+      color: var(--accent-blue);
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: 1.2rem;
     }
 
-    .hero h2 {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
+    /* ----------- Hero Section ----------- */
+    .hero {
+      padding-top: 10rem;
+      padding-bottom: 5rem;
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-mono);
+      color: var(--accent-green);
+      font-size: 0.95rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: var(--text-heading);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-main);
+      max-width: 700px;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
     }
 
     .btn {
       display: inline-block;
-      margin-top: 20px;
-      padding: 10px 25px;
-      border-radius: 30px;
-      background: linear-gradient(90deg, #ff6ec4, #7873f5);
-      color: #fff;
+      padding: 0.65rem 1.3rem;
+      border-radius: 6px;
       font-weight: 500;
-      transition: transform 0.3s;
+      font-size: 0.9rem;
+      transition: all 0.2s;
     }
 
-    .btn:hover {
-      transform: scale(1.05);
+    .btn-primary {
+      background-color: #2563eb;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    /* ----------- Section ----------- */
-    section {
-      padding: 100px 50px;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 1s, transform 1s;
+    .btn-primary:hover {
+      background-color: #1d4ed8;
+      text-decoration: none;
     }
 
-    section.show {
-      opacity: 1;
-      transform: translateY(0);
+    .btn-secondary {
+      background-color: var(--tag-bg);
+      color: var(--text-heading);
+      border: 1px solid var(--border-color);
     }
 
-    /* ----------- About ----------- */
-    .about {
-      display: flex;
-      align-items: center;
-      gap: 50px;
-      flex-wrap: wrap;
+    .btn-secondary:hover {
+      background-color: #334155;
+      text-decoration: none;
     }
 
-    .about img {
-      width: 250px;
-      border-radius: 50%;
-      border: 5px solid #ff6ec4;
-      transition: transform 0.5s;
-    }
-
-    .about img:hover {
-      transform: rotate(5deg) scale(1.05);
-    }
-
-    /* ----------- Projects ----------- */
-    .projects {
-      text-align: center;
-    }
-
-    .project-grid {
+    /* ----------- About Section & Profile Image ----------- */
+    .about-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
+      grid-template-columns: 2fr 1fr;
+      gap: 3rem;
+      align-items: center;
     }
 
-    .card {
-      background: #2f2f47;
-      padding: 20px;
-      border-radius: 15px;
-      transition: transform 0.4s, box-shadow 0.4s;
-      perspective: 1000px;
-      text-align: left;
+    .about-text p {
+      margin-bottom: 1rem;
+      color: var(--text-main);
     }
 
-    body.light .card {
-      background: #fff;
-      color: #333;
+    .profile-frame {
+      position: relative;
+      width: 220px;
+      height: 220px;
+      margin: 0 auto;
     }
 
-    .card:hover {
-      transform: rotateY(10deg) translateY(-10px);
-      box-shadow: 0px 10px 25px rgba(0,0,0,0.3);
-    }
-
-    .card img {
+    .profile-img {
       width: 100%;
-      height: 180px;
+      height: 130%;
       object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 15px;
+      border-radius: 12px;
+      border: 2px solid var(--border-color);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      transition: border-color 0.3s;
     }
 
-    /* ----------- Upcoming Projects ----------- */
-    #upcoming-projects {
-      background: rgba(255, 110, 196, 0.05);
-      border-radius: 15px;
-      margin-top: 50px;
-      padding: 100px 50px;
+    .profile-frame:hover .profile-img {
+      border-color: var(--accent-blue);
     }
 
-    /* ----------- Contact ----------- */
-    .contact {
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      background: var(--tag-bg);
+      border: 1px solid var(--border-color);
+      color: #cbd5e1;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 4px;
+    }
+
+    /* ----------- Projects Section ----------- */
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .project-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.8rem;
+      gap: 1rem;
+    }
+
+    .project-title {
+      font-size: 1.15rem;
+      color: var(--text-heading);
+      font-weight: 600;
+    }
+
+    .project-badge {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 12px;
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--accent-blue);
+      border: 1px solid rgba(59, 130, 246, 0.25);
+      white-space: nowrap;
+    }
+
+    .project-badge.featured {
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--accent-green);
+      border-color: rgba(16, 185, 129, 0.25);
+    }
+
+    .project-desc {
+      color: var(--text-main);
+      font-size: 0.93rem;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    /* ----------- Upcoming Section ----------- */
+    .upcoming-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .upcoming-card {
+      background: var(--card-bg);
+      border: 1px dashed var(--border-color);
+      border-radius: 8px;
+      padding: 1.25rem;
+      transition: border-color 0.2s;
+    }
+
+    .upcoming-card:hover {
+      border-color: var(--accent-blue);
+    }
+
+    .upcoming-card h3 {
+      font-size: 0.98rem;
+      color: var(--text-heading);
+      margin-bottom: 0.5rem;
+    }
+
+    .upcoming-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ----------- Contact & Footer ----------- */
+    .contact-box {
       text-align: center;
+      padding: 2.5rem 0;
     }
 
     footer {
-      background: #1e1e2f;
       text-align: center;
-      padding: 20px;
-      margin-top: 50px;
-      font-size: 0.9rem;
-      color: #aaa;
-      transition: background 0.5s;
+      padding: 2rem 0;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-color);
+      font-family: var(--font-mono);
     }
 
-    body.light footer {
-      background: #ddd;
-      color: #555;
+    @media (max-width: 768px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+      .profile-frame {
+        margin: 0 0 1.5rem 0;
+      }
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+      header {
+        padding: 1rem 5%;
+      }
+      nav a {
+        margin-left: 1rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
+  <!-- Navigation -->
   <header>
-    <h1>Imane Ait Said</h1>
+    <div class="brand">imane_ait_said<span>.py</span></div>
     <nav>
-      <a href="#about">À propos</a>
-      <a href="#projects">Projets</a>
-      <a href="#upcoming-projects">Futurs défis</a>
-      <a href="#contact">Contact</a>
-      <button class="toggle-btn">🌙 Mode</button>
+      <a href="#about">about</a>
+      <a href="#research">research</a>
+      <a href="#projects">projects</a>
+      <a href="#future">future_work</a>
+      <a href="#contact">contact</a>
     </nav>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <h2>Salut, je suis <span style="color:#ff6ec4;">Développeuse Full-Stack</span></h2>
-    <p>Licence en Génie Informatique | Étudiante en Master Science des Données et Systèmes Intelligents</p>
-    <a href="#projects" class="btn">Voir mes projets</a>
-  </section>
+  <div class="container">
 
-  <!-- About -->
-  <section id="about" class="about">
-    <img src="images/profil.jpg" alt="Photo de profil">
-    <div class="about-text">
-      <h2>À propos de moi</h2>
-      <p>
-        Je suis <b>développeuse passionnée</b> avec des compétences en 
-        <b>HTML, CSS, JavaScript, Java, C++, Spring Boot</b> et plus encore.  
-        Après une Licence en Génie Informatique, je poursuis actuellement un <b>Master en Science des Données et Systèmes Intelligents</b>.  
-        Mon objectif est de créer des solutions intelligentes et innovantes qui allient technologie et impact réel.
-      </p>
-    </div>
-  </section>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="hero-subtitle">Hello, world! I am</div>
+      <h1>Imane Ait Said.</h1>
+      <p>MSc Student in Data Science & Intelligent Systems. Currently focusing on 3D Computer Vision, Deep Learning pipelines, and Graph Intelligence for complex engineering applications.</p>
+      <div class="btn-group">
+        <a href="#research" class="btn btn-primary">View Research & Projects</a>
+        <a href="mailto:asimane028@gmail.com" class="btn btn-secondary">Get In Touch</a>
+      </div>
+    </section>
 
-  <!-- Projects -->
-  <section id="projects" class="projects">
-    <h2>Mes Projets</h2>
-    <div class="project-grid">
-      <div class="card">
-        <img src="images/robotique.jpg" alt="Projet Robotique">
-        <h3>🤖 Projet Robotique</h3>
-        <p>Un robot qui fait l’arrosage automatique, développé avec Arduino et programmé en C++.</p>
+    <!-- About Section -->
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            I am a Master's student at the Faculty of Sciences and Technology (FST Fez), specializing in Data Science and Intelligent Systems. My work lies at the intersection of Machine Learning, 3D Computer Vision, and structured Data Systems.
+          </p>
+          <p>
+            Currently, my research focuses on multi-view image processing and 3D CAD reconstruction tailored for industrial manufacturing workflows.
+          </p>
+          <p style="margin-top: 1.2rem; font-weight: 600; color: var(--text-heading); font-size: 0.9rem;">Core Technical Stack:</p>
+          <div class="skills-list">
+            <span class="tag">Python</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">Scikit-Learn</span>
+            <span class="tag">Computer Vision</span>
+            <span class="tag">NLP</span>
+            <span class="tag">Neo4j (Graph DB)</span>
+            <span class="tag">SQL / MongoDB</span>
+            <span class="tag">Java / C++</span>
+            <span class="tag">Git / GitHub</span>
+          </div>
+        </div>
+        <div class="profile-frame">
+          <img src="images/profil.jpg" alt="Imane Ait Said" class="profile-img">
+        </div>
       </div>
-      <div class="card">
-        <img src="images/mexivibe.png" alt="Site Mexican Vibe">
-        <h3>🌎 Site Mexican Vibe</h3>
-        <p>Un site web touristique moderne présentant la culture et les monuments du Mexique.</p>
-      </div>
-      <div class="card">
-        <img src="images/comnpusconf.jpg" alt="CampusConf">
-        <h3>🎓 CampusConf</h3>
-        <p>Une application web pour la gestion des conférences académiques (soumissions, évaluations, etc.).</p>
-      </div>
-      <div class="card">
-        <img src="images/chumarr.png" alt="CHU Marrakech">
-        <h3>🏥 CHU Marrakech</h3>
-        <p>Application web pour la gestion du laboratoire hospitalier : analyses, résultats et validation médicale.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
+    <!-- Research & Major Projects -->
+    <section id="research">
+      <h2 class="section-title">Research & Projects</h2>
 
- <!-- Upcoming Projects -->
-<section id="upcoming-projects" class="projects">
-  <h2>Futurs défis</h2>
-  <div class="project-grid">
-    <div class="card">
-      <h3>🌐 Application Web3 / Blockchain</h3>
-      <p>Développement d’une application web décentralisée pour expérimenter avec les crypto-monnaies et la blockchain.</p>
-    </div>
-    <div class="card">
-      <h3>📊 Analyse avancée de données</h3>
-      <p>Exploitation de données massives pour générer des rapports et prévisions, avec des visualisations et insights stratégiques.</p>
-    </div>
-    <div class="card">
-      <h3>🤖 Projet Master en IA et Data Science</h3>
-      <p>Création d’un modèle d’apprentissage automatique pour analyser des données complexes et résoudre des problèmes réels dans ton domaine de master.</p>
-    </div>
+      <!-- Research Project -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-title">3D CAD Manufacturing-Ready Reconstruction from 2D Images</div>
+          <span class="project-badge featured">Master's Dissertation</span>
+        </div>
+        <div class="project-desc">
+          Developing an end-to-end Computer Vision pipeline (Instance Segmentation → Image-to-3D → Mesh-to-Solid conversion) to reconstruct production-ready CAD models of mechanical components from multi-view photographs. Evaluated geometric fidelity against ground-truth parametric CAD models.
+        </div>
+        <div class="project-tags">
+          <span class="tag">Computer Vision</span>
+          <span class="tag">3D Mesh Processing</span>
+          <span class="tag">Deep Learning</span>
+          <span class="tag">Python</span>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card" id="projects">
+        <div class="project-header">
+          <div class="project-title">AI-Generated Content & Fake News Detection System</div>
+          <span class="project-badge">Machine Learning / NLP</span>
+        </div>
+        <div class="project-desc">
+          Designed a multi-modal machine learning pipeline analyzing textual features and image metadata/artifacts to identify synthetic content (AI-generated images and automated disinformation articles).
+        </div>
+        <div class="project-tags">
+          <span class="tag">NLP</span>
+          <span class="tag">Scikit-Learn</span>
+          <span class="tag">Classification</span>
+          <span class="tag">Feature Engineering</span>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-title">Graph Analytics for Bank Fraud Detection</div>
+          <span class="project-badge">Graph Intelligence</span>
+        </div>
+        <div class="project-desc">
+          Modeled complex financial transactions as property graphs using Neo4j. Executed Cypher queries and graph algorithms to detect circular money flows, suspicious account clusters, and fraud rings.
+        </div>
+        <div class="project-tags">
+          <span class="tag">Neo4j</span>
+          <span class="tag">Cypher</span>
+          <span class="tag">Graph Mining</span>
+          <span class="tag">NoSQL</span>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-title">CampusConf - Academic Conference Management Platform</div>
+          <span class="project-badge">Software Engineering</span>
+        </div>
+        <div class="project-desc">
+          Built an MVC-architected web platform managing academic paper submissions, peer-review routing, and notifications, ensuring scalable relational database operations.
+        </div>
+        <div class="project-tags">
+          <span class="tag">Java</span>
+          <span class="tag">Servlets / JSP</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">MVC</span>
+        </div>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-title">Laboratory Information Management System (LIMS)</div>
+          <span class="project-badge">Industry Internship</span>
+        </div>
+        <div class="project-desc">
+          Developed a web-based system for CHU Marrakech to track medical test workflows, manage patient records, and streamline automated result validation.
+        </div>
+        <div class="project-tags">
+          <span class="tag">Web Engineering</span>
+          <span class="tag">Database Design</span>
+          <span class="tag">Backend API</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Future Directions / Research Focus -->
+    <section id="future">
+      <h2 class="section-title">Future Research Directions</h2>
+      <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Key areas of planned exploration for upcoming research mobility:</p>
+
+      <div class="upcoming-grid">
+        <div class="upcoming-card">
+          <h3>⚡ World Models for Occlusion Inference</h3>
+          <p>Investigating generative latent space representations to infer unseen or occluded internal geometry in 3D reconstruction.</p>
+        </div>
+        <div class="upcoming-card">
+          <h3> Transformer-based Text Summarization</h3>
+          <p>Fine-tuning domain-specific LLMs for automated technical document summarization and bias detection in textual datasets.</p>
+        </div>
+        <div class="upcoming-card">
+          <h3> Adversarial Robustness in Vision</h3>
+          <p>Analyzing deep learning model vulnerabilities against adversarial perturbations in industrial diagnostic vision systems.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="border-bottom: none;">
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="contact-box">
+        <p style="color: var(--text-main); max-width: 500px; margin: 0 auto 1.5rem auto;">
+          I am actively seeking research opportunities and academic collaborations in Machine Learning, Computer Vision, and Data Science.
+        </p>
+        <div class="btn-group" style="justify-content: center;">
+          <a href="mailto:asimane028@gmail.com" class="btn btn-primary">Send Email</a>
+          <a href="https://ma.linkedin.com/in/imane-ait-said-812107365" target="_blank" class="btn btn-secondary">LinkedIn Profile</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Designed & Built by Imane Ait Said — 2026
+    </footer>
+
   </div>
-</section>
-
-  <!-- Contact -->
-  <section id="contact" class="contact">
-    <h2>Contact</h2>
-    <p>Vous souhaitez collaborer ou discuter d’un projet ?</p>
-    <p>📩 <a href="mailto:asimane028@gmail.com" class="btn">Envoyer un mail</a></p>
-    <p>🔗 <a href="https://ma.linkedin.com/in/imane-ait-said-812107365" target="_blank" class="btn">Mon LinkedIn</a></p>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    © 2025 Imane Ait Said - Tous droits réservés
-  </footer>
-
-  <!-- Script -->
-  <script>
-    // Animation au scroll
-    const sections = document.querySelectorAll("section, .hero");
-    const revealOnScroll = () => {
-      sections.forEach(sec => {
-        const top = sec.getBoundingClientRect().top;
-        if (top < window.innerHeight - 100) {
-          sec.classList.add("show");
-        }
-      });
-    };
-    window.addEventListener("scroll", revealOnScroll);
-    revealOnScroll();
-
-    // Mode clair/sombre
-    const toggleBtn = document.querySelector(".toggle-btn");
-    toggleBtn.addEventListener("click", () => {
-      document.body.classList.toggle("light");
-      toggleBtn.textContent = document.body.classList.contains("light") ? "🌞 Mode" : "🌙 Mode";
-    });
-  </script>
 
 </body>
 </html>
