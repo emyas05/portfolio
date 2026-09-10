@@ -300,6 +300,32 @@
       gap: 0.4rem;
     }
 
+    .project-links {
+      margin-top: 1rem;
+      display: flex;
+      gap: 0.8rem;
+    }
+
+    .code-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--text-heading);
+      background: var(--tag-bg);
+      border: 1px solid var(--border-color);
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      transition: border-color 0.2s;
+    }
+
+    .code-link:hover {
+      border-color: var(--accent-blue);
+      text-decoration: none;
+      color: var(--accent-blue);
+    }
+
     /* ----------- Upcoming Section ----------- */
     .upcoming-grid {
       display: grid;
@@ -370,7 +396,7 @@
 
   <!-- Navigation -->
   <header>
-    <div class="brand">emy<span>.AS</span></div>
+    <div class="brand">Emy<span>.AS</span></div>
     <nav>
       <a href="#about">about</a>
       <a href="#research">research</a>
@@ -407,7 +433,6 @@
           <p style="margin-top: 1.2rem; font-weight: 600; color: var(--text-heading); font-size: 0.9rem;">Core Technical Stack:</p>
           <div class="skills-list">
             <span class="tag">Python</span>
-            <span class="tag">PyTorch</span>
             <span class="tag">Scikit-Learn</span>
             <span class="tag">Computer Vision</span>
             <span class="tag">NLP</span>
@@ -431,7 +456,7 @@
       <div class="project-card">
         <div class="project-header">
           <div class="project-title">3D CAD Manufacturing-Ready Reconstruction from 2D Images</div>
-          <span class="project-badge featured">Master's Dissertation</span>
+          <span class="project-badge featured">Master's Dissertation — Research in Progress</span>
         </div>
         <div class="project-desc">
           Developing an end-to-end Computer Vision pipeline (Instance Segmentation → Image-to-3D → Mesh-to-Solid conversion) to reconstruct production-ready CAD models of mechanical components from multi-view photographs. Evaluated geometric fidelity against ground-truth parametric CAD models.
@@ -459,6 +484,9 @@
           <span class="tag">Classification</span>
           <span class="tag">Feature Engineering</span>
         </div>
+        <div class="project-links">
+          <a href="https://github.com/emyas05/fake-news-detection" target="_blank" class="code-link">💻 View Code</a>
+        </div>
       </div>
 
       <!-- Project 3 -->
@@ -475,6 +503,9 @@
           <span class="tag">Cypher</span>
           <span class="tag">Graph Mining</span>
           <span class="tag">NoSQL</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/emyas05/fraud-detection-graphml" target="_blank" class="code-link">💻 View Code</a>
         </div>
       </div>
 
@@ -511,6 +542,63 @@
         </div>
       </div>
 
+      <!-- Project 6 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-title">Project Management Web Application</div>
+          <span class="project-badge">Software Engineering</span>
+        </div>
+        <div class="project-desc">
+          Designed and developed a web application for project management, built with Spring Boot.
+        </div>
+        <div class="project-tags">
+          <span class="tag">Java</span>
+          <span class="tag">Spring Boot</span>
+          <span class="tag">MVC</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/emyas05/app-web-gestion-de-projet-spring-boot-" target="_blank" class="code-link">💻 View Code</a>
+        </div>
+      </div>
+
+      <!-- Project 7 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-title">Football Match Analysis</div>
+          <span class="project-badge">Data Science</span>
+        </div>
+        <div class="project-desc">
+          Exploratory data analysis and modeling on football match statistics, applying data cleaning, visualization, and machine learning techniques.
+        </div>
+        <div class="project-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">Data Visualization</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/emyas05/-Football-analysis" target="_blank" class="code-link">💻 View Code</a>
+        </div>
+      </div>
+
+      <!-- Project 8 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-title">Erasmus+ Exploratory Data Analysis</div>
+          <span class="project-badge">Data Science</span>
+        </div>
+        <div class="project-desc">
+          Exploratory data analysis of Erasmus+ mobility data, uncovering patterns and trends through data cleaning and visualization.
+        </div>
+        <div class="project-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">EDA</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/emyas05/Erasmus_plus_EDA" target="_blank" class="code-link">💻 View Code</a>
+        </div>
+      </div>
+
     </section>
 
     <!-- Future Directions / Research Focus -->
@@ -524,11 +612,11 @@
           <p>Investigating generative latent space representations to infer unseen or occluded internal geometry in 3D reconstruction.</p>
         </div>
         <div class="upcoming-card">
-          <h3> Transformer-based Text Summarization</h3>
+          <h3>📝 Transformer-based Text Summarization</h3>
           <p>Fine-tuning domain-specific LLMs for automated technical document summarization and bias detection in textual datasets.</p>
         </div>
         <div class="upcoming-card">
-          <h3> Adversarial Robustness in Vision</h3>
+          <h3>🛡️ Adversarial Robustness in Vision</h3>
           <p>Analyzing deep learning model vulnerabilities against adversarial perturbations in industrial diagnostic vision systems.</p>
         </div>
       </div>
@@ -544,6 +632,7 @@
         <div class="btn-group" style="justify-content: center;">
           <a href="mailto:asimane028@gmail.com" class="btn btn-primary">Send Email</a>
           <a href="https://ma.linkedin.com/in/imane-ait-said-812107365" target="_blank" class="btn btn-secondary">LinkedIn Profile</a>
+          <a href="https://github.com/emyas05" target="_blank" class="btn btn-secondary">GitHub Profile</a>
         </div>
       </div>
     </section>
